@@ -80,14 +80,14 @@
     <script>
         // Redirect to the single page progressive experience after a brief delay
         setTimeout(function() {
-            window.location.href = 'pages/single_page_progressive_experience.html';
+            window.location.href = 'pages/single_page.html';
         }, 2000); // 2 second delay for a smooth transition
         
         // Fallback redirect in case of any issues
         window.addEventListener('load', function() {
             setTimeout(function() {
                 if (window.location.pathname.endsWith('index.html') || window.location.pathname.endsWith('/')) {
-                    window.location.replace('pages/single_page_progressive_experience.html');
+                    window.location.replace('pages/single_page.html');
                 }
             }, 3000);
         });
