@@ -1,0 +1,202 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Primary Colors - Soft comfort, main emotional safety */
+    --color-primary: #FFE1E6; /* pink-100 */
+    --color-primary-50: #FFF5F7; /* pink-50 */
+    --color-primary-100: #FFE1E6; /* pink-100 */
+    --color-primary-200: #FFCCD5; /* pink-200 */
+    --color-primary-300: #FFB3C1; /* pink-300 */
+    --color-primary-400: #FF8FA3; /* pink-400 */
+    --color-primary-500: #FF6B88; /* pink-500 */
+    
+    /* Secondary Colors - Gentle support, breathing space */
+    --color-secondary: #FFF0F3; /* pink-50 */
+    --color-secondary-50: #FFFBFC; /* pink-25 */
+    --color-secondary-100: #FFF0F3; /* pink-50 */
+    --color-secondary-200: #FFE5EA; /* pink-100 */
+    --color-secondary-300: #FFD6DE; /* pink-150 */
+    
+    /* Accent Colors - Tender highlights, special moments */
+    --color-accent: #F3E8FF; /* purple-100 */
+    --color-accent-50: #FAF5FF; /* purple-50 */
+    --color-accent-100: #F3E8FF; /* purple-100 */
+    --color-accent-200: #E9D5FF; /* purple-200 */
+    --color-accent-300: #D8B4FE; /* purple-300 */
+    --color-accent-400: #C084FC; /* purple-400 */
+    
+    /* Background Colors - Pure canvas, clean emotional slate */
+    --color-background: #FEFCFD; /* neutral-50 */
+    --color-background-alt: #FEFCFD; /* neutral-50 */
+    
+    /* Surface Colors - Subtle cards, gentle content separation */
+    --color-surface: #F8F4F6; /* warm-gray-50 */
+    --color-surface-hover: #F5F0F2; /* warm-gray-100 */
+    --color-surface-active: #F0EBED; /* warm-gray-150 */
+    
+    /* Text Colors - Warm readability, intimate conversation */
+    --color-text-primary: #2D1B2E; /* purple-900 */
+    --color-text-secondary: #6B4C6D; /* purple-700 */
+    --color-text-tertiary: #9B7C9D; /* purple-500 */
+    --color-text-disabled: #C4B0C5; /* purple-300 */
+    
+    /* Status Colors */
+    --color-success: #E8F5E8; /* green-50 */
+    --color-success-dark: #4CAF50; /* green-500 */
+    --color-warning: #FFF4E6; /* orange-50 */
+    --color-warning-dark: #FF9800; /* orange-500 */
+    --color-error: #FFE8E8; /* red-50 */
+    --color-error-dark: #F44336; /* red-500 */
+    
+    /* Shadow Variables */
+    --shadow-gentle: 0 4px 20px rgba(255, 225, 230, 0.3);
+    --shadow-deep: 0 8px 32px rgba(255, 225, 230, 0.4);
+    --shadow-soft: 0 2px 12px rgba(255, 225, 230, 0.2);
+    
+    /* Border Variables */
+    --border-primary: rgba(255, 225, 230, 0.2);
+    --border-secondary: rgba(255, 240, 243, 0.3);
+    --border-accent: rgba(243, 232, 255, 0.25);
+    
+    /* Transition Variables */
+    --transition-fast: 200ms ease-out;
+    --transition-base: 300ms ease-out;
+    --transition-slow: 500ms ease-out;
+    --transition-delay: 150ms;
+  }
+*  {
+    
+  }
+  
+  body {
+    @apply bg-background text-text-primary font-body;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-headline;
+  }
+}
+
+@layer components {
+  /* Gentle Shadow Utilities */
+  .shadow-gentle {
+    box-shadow: var(--shadow-gentle);
+  }
+  
+  .shadow-deep {
+    box-shadow: var(--shadow-deep);
+  }
+  
+  .shadow-soft {
+    box-shadow: var(--shadow-soft);
+  }
+  
+  /* Smooth Transitions */
+  .transition-gentle {
+    transition: all var(--transition-base);
+  }
+  
+  .transition-fast {
+    transition: all var(--transition-fast);
+  }
+  
+  .transition-slow {
+    transition: all var(--transition-slow);
+  }
+  
+  /* Card Components */
+  .card-gentle {
+    @apply bg-surface rounded-2xl p-6 shadow-gentle transition-gentle;
+  }
+  
+  .card-gentle:hover {
+    @apply shadow-deep transform -translate-y-1;
+  }
+  
+  /* Button Components */
+  .btn-primary {
+    @apply bg-primary-500 text-white font-cta font-semibold px-6 py-3 rounded-full shadow-soft transition-fast;
+  }
+  
+  .btn-primary:hover {
+    @apply bg-primary-400 shadow-gentle transform scale-105;
+  }
+  
+  .btn-secondary {
+    @apply bg-secondary-100 text-text-primary font-cta font-medium px-6 py-3 rounded-full shadow-soft transition-fast;
+  }
+  
+  .btn-secondary:hover {
+    @apply bg-secondary-200 shadow-gentle;
+  }
+  
+  /* Input Components */
+  .input-gentle {
+    @apply bg-background border border-primary/20 rounded-xl px-4 py-3 text-text-primary placeholder:text-text-tertiary transition-gentle focus:outline-none focus:border-primary-300 focus:shadow-soft;
+  }
+  
+  /* Progressive Reveal Animation */
+  .reveal-stagger {
+    animation: revealUp var(--transition-base) ease-out forwards;
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  
+  @keyframes revealUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .reveal-stagger:nth-child(1) { animation-delay: 0ms; }
+  .reveal-stagger:nth-child(2) { animation-delay: 150ms; }
+  .reveal-stagger:nth-child(3) { animation-delay: 300ms; }
+  .reveal-stagger:nth-child(4) { animation-delay: 450ms; }
+  .reveal-stagger:nth-child(5) { animation-delay: 600ms; }
+  
+  /* Gentle Pulse Animation */
+  .pulse-gentle {
+    animation: pulseGentle 2s ease-in-out infinite;
+  }
+  
+  @keyframes pulseGentle {
+    0%, 100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.8;
+    }
+  }
+}
+
+@layer utilities {
+  /* Text Utilities */
+  .text-balance {
+    text-wrap: balance;
+  }
+  
+  /* Gradient Utilities */
+  .gradient-warm {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+  }
+  
+  .gradient-tender {
+    background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-primary) 100%);
+  }
+  
+  /* Backdrop Blur */
+  .backdrop-gentle {
+    backdrop-filter: blur(12px);
+    background-color: rgba(254, 252, 253, 0.8);
+  }
+}
